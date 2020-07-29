@@ -10,8 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/main_layout"
-        android:visibility="gone">
+        android:id="@+id/main_layout">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -31,6 +30,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/recyclerview"
@@ -41,10 +41,10 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/fab"
             android:background="@color/colorPrimaryDark"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:layout_margin="16dp"
             android:src="@drawable/add_icon">
 
@@ -54,18 +54,31 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         android:background="@color/colorPrimaryDark"
-        android:layout_margin="10dp"
         android:id="@+id/dialog_layout">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back_image"
+            android:contentDescription="@string/contentdesc"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/cut_icon"
+            android:layout_margin="10dp">
+
+        </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/newmed"
             android:textSize="25sp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="100dp"
             android:textColor="@color/white"
             android:id="@+id/newmed_text"
             android:layout_centerHorizontal="true">
@@ -77,14 +90,13 @@
             android:layout_height="45dp"
             android:id="@+id/medicine_name_et"
             android:layout_below="@id/newmed_text"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:hint="@string/medname"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:drawablePadding="10dp"
-            android:drawableLeft="@drawable/med_icon"
             android:drawableStart="@drawable/med_icon"
             android:background="@drawable/et_bg"
             android:textColorHint="@color/gray"
@@ -96,11 +108,12 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:background="@drawable/et_bg"
-            android:text="@string/date"
-            android:id="@+id/date_btn"
+            android:text="@string/time"
+            android:id="@+id/time_btn"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/medicine_name_et">
 
         </Button>
@@ -108,19 +121,203 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/date_text"
-            android:layout_toRightOf="@id/date_btn"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
+            android:id="@+id/time_text"
+            android:layout_toStartOf="@id/time_btn"
             android:textColor="@color/white"
             android:gravity="center"
             android:textSize="25sp"
-            android:layout_toEndOf="@id/date_btn"
+            android:layout_marginStart="16dp"
             android:layout_below="@id/medicine_name_et"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="10dp">
 
         </TextView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_bg"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/time_text">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/sunday"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/monday"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/tuesday"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/wednesday"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/thursday"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/friday"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/saturday"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <CheckBox
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@null"
+                    android:translationX="10dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    tools:ignore="NestedWeights">
+
+                </CheckBox>
+
+                <CheckBox
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@null"
+                    android:translationX="10dp"
+                    android:layout_weight="1"
+                    android:padding="3dp">
+
+                </CheckBox>
+
+                <CheckBox
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@null"
+                    android:translationX="10dp"
+                    android:layout_weight="1"
+                    android:padding="3dp">
+
+                </CheckBox>
+
+                <CheckBox
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@null"
+                    android:translationX="10dp"
+                    android:layout_weight="1"
+                    android:padding="3dp">
+
+                </CheckBox>
+
+                <CheckBox
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@null"
+                    android:translationX="10dp"
+                    android:layout_weight="1"
+                    android:padding="3dp">
+
+                </CheckBox>
+                <CheckBox
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@null"
+                    android:translationX="10dp"
+                    android:layout_weight="1"
+                    android:padding="3dp">
+
+                </CheckBox>
+
+                <CheckBox
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@null"
+                    android:translationX="10dp"
+                    android:layout_weight="1"
+                    android:padding="3dp">
+
+                </CheckBox>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

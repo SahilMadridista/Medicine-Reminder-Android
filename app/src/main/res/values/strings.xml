@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Medicine Reminder</string>
+    <string name="contentdesc">Image description</string>
     <string name="medname">Medicine name</string>
     <string name="newmed">New Medicine</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
+    <string name="sunday">S</string>
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">T</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
 </resources>
