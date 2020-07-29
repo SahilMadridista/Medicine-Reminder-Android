@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,6 +17,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
    private RelativeLayout DialogLayout,MainLayout;
+   private TextView QuantityText;
+   int quantity = 0;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
       ImageView BackImage;
       FloatingActionButton FloatingButton;
+
+      QuantityText = findViewById(R.id.quantity);
+      QuantityText.setText(String.valueOf(quantity));
 
       DialogLayout = findViewById(R.id.dialog_layout);
       MainLayout = findViewById(R.id.main_layout);
@@ -74,6 +81,29 @@ public class MainActivity extends AppCompatActivity {
       MainLayout.setVisibility(View.VISIBLE);
 
    }
+
+   public void subtract(View v){
+
+      quantity = quantity-1;
+      displayQuantity(quantity);
+
+   }
+
+
+   public void add(View v){
+
+      quantity = quantity+1;
+      displayQuantity(quantity);
+
+   }
+
+   public void displayQuantity(int quantity) {
+
+      QuantityText.setText(String.valueOf(quantity));
+
+   }
+
+
 
    @Override
    public void onBackPressed() {

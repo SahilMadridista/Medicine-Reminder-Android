@@ -10,7 +10,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:id="@+id/main_layout">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -56,6 +55,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_layout">
 
@@ -352,6 +352,7 @@
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:id="@+id/sub_one_btn"
+                    android:onClick="subtract"
                     android:background="@color/colorPrimaryDark"
                     android:text="@string/subone"
                     android:textColor="@color/white">
@@ -375,6 +376,7 @@
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:id="@+id/add_one_btn"
+                    android:onClick="add"
                     android:background="@color/colorPrimaryDark"
                     android:text="@string/addone"
                     android:layout_toEndOf="@id/quantity"
@@ -384,7 +386,6 @@
                 </Button>
 
             </RelativeLayout>
-
 
         </RelativeLayout>
 
