@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Medicine Reminder</string>
+    <string name="medname">Medicine name</string>
+    <string name="newmed">New Medicine</string>
+</resources>
