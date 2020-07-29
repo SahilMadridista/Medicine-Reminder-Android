@@ -1,8 +1,6 @@
 package com.example.medicinereminder;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -10,13 +8,11 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-
 
    private RelativeLayout DialogLayout,MainLayout;
 
@@ -32,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
       MainLayout = findViewById(R.id.main_layout);
       FloatingButton = findViewById(R.id.fab);
       BackImage = findViewById(R.id.back_image);
-
 
       FloatingButton.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -78,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
       MainLayout.setVisibility(View.VISIBLE);
 
-
    }
 
    @Override
@@ -119,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
                  .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
                        dialogInterface.cancel();
+
                     }
                  });
 
@@ -127,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
          alertDialog.show();
 
       }
-
 
    }
 }
