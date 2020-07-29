@@ -2,4 +2,6 @@
     <string name="app_name">Medicine Reminder</string>
     <string name="medname">Medicine name</string>
     <string name="newmed">New Medicine</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
 </resources>
