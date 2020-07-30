@@ -1,23 +1,28 @@
 package com.example.medicinereminder;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import android.app.AlertDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import android.widget.TimePicker;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
 
    private RelativeLayout DialogLayout,MainLayout;
-   private TextView QuantityText;
+   private TextView QuantityText,TimeText;
+   //private EditText MedicineNameET;
    int quantity = 0;
 
    @Override
@@ -27,9 +32,35 @@ public class MainActivity extends AppCompatActivity {
 
       ImageView BackImage;
       FloatingActionButton FloatingButton;
+      Button CancelButton;
+      Button TimePickerButton;
+
+      Calendar calendar = Calendar.getInstance();
+
+      //MedicineNameET = findViewById(R.id.medicine_name_et);
+      TimeText = findViewById(R.id.time_text);
+      TimePickerButton = findViewById(R.id.time_btn);
+
+      TimePickerButton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+
+            DialogFragment timePicker = new TimePickerFragment();
+            timePicker.show(getSupportFragmentManager(), "time picker");
+
+         }
+      });
 
       QuantityText = findViewById(R.id.quantity);
       QuantityText.setText(String.valueOf(quantity));
+
+      CancelButton = findViewById(R.id.cancel_btn);
+      CancelButton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            CloseMedicineDialog();
+         }
+      });
 
       DialogLayout = findViewById(R.id.dialog_layout);
       MainLayout = findViewById(R.id.main_layout);
@@ -103,8 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
    }
 
-
-
    @Override
    public void onBackPressed() {
 
@@ -153,6 +182,13 @@ public class MainActivity extends AppCompatActivity {
          alertDialog.show();
 
       }
+
+   }
+
+   @Override
+   public void onTimeSet(TimePicker timePicker, int i, int i1) {
+
+      TimeText.setText(i+":"+i1);
 
    }
 }

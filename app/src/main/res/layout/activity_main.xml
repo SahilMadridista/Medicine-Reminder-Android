@@ -55,7 +55,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_layout">
 
@@ -88,6 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:id="@+id/medicine_name_et"
+            android:inputType="textCapWords"
             android:layout_below="@id/newmed_text"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
@@ -322,6 +322,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/quantity_layout"
             android:layout_below="@id/days_layout"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -349,10 +350,12 @@
                 android:layout_centerHorizontal="true">
 
                 <Button
-                    android:layout_width="30dp"
+                    android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:id="@+id/sub_one_btn"
                     android:onClick="subtract"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:background="@color/colorPrimaryDark"
                     android:text="@string/subone"
                     android:textColor="@color/white">
@@ -365,22 +368,25 @@
                     android:id="@+id/quantity"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:layout_marginStart="5dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="17sp"
+                    android:textSize="20sp"
                     android:layout_toEndOf="@id/sub_one_btn">
 
                 </TextView>
 
                 <Button
-                    android:layout_width="30dp"
+                    android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:id="@+id/add_one_btn"
                     android:onClick="add"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:background="@color/colorPrimaryDark"
                     android:text="@string/addone"
                     android:layout_toEndOf="@id/quantity"
-                    android:layout_marginStart="5dp"
                     android:textColor="@color/white">
 
                 </Button>
@@ -388,6 +394,44 @@
             </RelativeLayout>
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_layout"
+            android:layout_below="@id/quantity_layout"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/cancel_btn"
+                android:text="@string/cancel"
+                android:textColor="@color/white"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/cancel_btn_bg"
+                tools:ignore="ButtonStyle">
+
+            </Button>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/save"
+                android:background="@drawable/save_btn_bg"
+                tools:ignore="ButtonStyle">
+
+            </Button>
+
+
+        </LinearLayout>
 
     </RelativeLayout>
 
