@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
       ImageView BackImage;
       FloatingActionButton FloatingButton;
-      Button CancelButton;
-      Button TimePickerButton,SaveMedicineForAlarm;
+      Button ClearButton;
+      final Button TimePickerButton,SaveMedicineForAlarm;
 
       MedicineNameET = findViewById(R.id.medicine_name_et);
       TimeText = findViewById(R.id.time_text);
@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
       QuantityText = findViewById(R.id.quantity);
       QuantityText.setText(String.valueOf(quantity));
 
-      CancelButton = findViewById(R.id.cancel_btn);
-      CancelButton.setOnClickListener(new View.OnClickListener() {
+      ClearButton = findViewById(R.id.cancel_btn);
+      ClearButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
             MedicineNameET.setText("");
@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
             SaturdayBox.setChecked(false);
             int zero = 0;
             QuantityText.setText(String.valueOf(zero));
+
+            Toast.makeText(getApplicationContext(),"Data cleared !",Toast.LENGTH_LONG).show();
+
          }
       });
 
