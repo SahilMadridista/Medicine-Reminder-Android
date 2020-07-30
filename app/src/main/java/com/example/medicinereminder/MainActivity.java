@@ -9,21 +9,25 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
 
    private RelativeLayout DialogLayout,MainLayout;
    private TextView QuantityText,TimeText;
-   //private EditText MedicineNameET;
+   private EditText MedicineNameET;
    int quantity = 0;
+   private CheckBox SundayBox,MondayBox,TuesdayBox,WednesdayBox,ThursdayBox,FridayBox,SaturdayBox;
+   private boolean[] dayOfWeekList = new boolean[7];
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +37,28 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
       ImageView BackImage;
       FloatingActionButton FloatingButton;
       Button CancelButton;
-      Button TimePickerButton;
+      Button TimePickerButton,SaveMedicineForAlarm;
 
-      Calendar calendar = Calendar.getInstance();
-
-      //MedicineNameET = findViewById(R.id.medicine_name_et);
+      MedicineNameET = findViewById(R.id.medicine_name_et);
       TimeText = findViewById(R.id.time_text);
       TimePickerButton = findViewById(R.id.time_btn);
+      SaveMedicineForAlarm = findViewById(R.id.save_medicine);
+
+      SundayBox = findViewById(R.id.sundaybox);
+      MondayBox = findViewById(R.id.mondaybox);
+      TuesdayBox = findViewById(R.id.tuesdaybox);
+      WednesdayBox = findViewById(R.id.wednesdaybox);
+      ThursdayBox = findViewById(R.id.thursdaybox);
+      FridayBox = findViewById(R.id.fridaybox);
+      SaturdayBox = findViewById(R.id.saturdaybox);
+
+
+      SaveMedicineForAlarm.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            SaveMedicine();
+         }
+      });
 
       TimePickerButton.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -58,7 +77,17 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
       CancelButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-            CloseMedicineDialog();
+            MedicineNameET.setText("");
+            TimeText.setText("");
+            SundayBox.setChecked(false);
+            MondayBox.setChecked(false);
+            TuesdayBox.setChecked(false);
+            WednesdayBox.setChecked(false);
+            ThursdayBox.setChecked(false);
+            FridayBox.setChecked(false);
+            SaturdayBox.setChecked(false);
+            int zero = 0;
+            QuantityText.setText(String.valueOf(zero));
          }
       });
 
@@ -80,6 +109,55 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
             CloseMedicineDialog();
          }
       });
+
+   }
+
+   private void SaveMedicine(){
+
+      if(MedicineNameET.getText().toString().trim().isEmpty()){
+
+         MedicineNameET.setError("Medicine name can't be empty");
+         MedicineNameET.requestFocus();
+         return;
+
+      }
+
+      if(TimeText.getText().toString().isEmpty()){
+
+         Toast.makeText(getApplicationContext(),"Please choose a time",Toast.LENGTH_LONG).show();
+         return;
+
+      }
+
+      if(!(SundayBox.isChecked() || MondayBox.isChecked() || TuesdayBox.isChecked() || WednesdayBox.isChecked() ||
+              ThursdayBox.isChecked() || FridayBox.isChecked() || SaturdayBox.isChecked())){
+
+         Toast.makeText(getApplicationContext(),"Please select at least a day of week",Toast.LENGTH_LONG).show();
+         return;
+
+      }
+
+      int q = Integer.parseInt(QuantityText.getText().toString());
+
+      if(q<0){
+
+         Toast.makeText(getApplicationContext(),"Quantity can't be negative",Toast.LENGTH_LONG).show();
+         return;
+
+      }
+
+      if(q==0){
+
+         Toast.makeText(getApplicationContext(),"Quantity can't be zero",Toast.LENGTH_LONG).show();
+         return;
+
+      }
+
+
+      Toast.makeText(getApplicationContext(),"BINGO ! Working fine.",Toast.LENGTH_LONG).show();
+
+
+
 
    }
 
@@ -115,7 +193,8 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
    public void subtract(View v){
 
-      quantity = quantity-1;
+      int number = Integer.parseInt(QuantityText.getText().toString());
+      quantity = number - 1;
       displayQuantity(quantity);
 
    }
@@ -123,7 +202,8 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
    public void add(View v){
 
-      quantity = quantity+1;
+      int number = Integer.parseInt(QuantityText.getText().toString());
+      quantity = number + 1;
       displayQuantity(quantity);
 
    }
@@ -191,4 +271,5 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
       TimeText.setText(i+":"+i1);
 
    }
+
 }

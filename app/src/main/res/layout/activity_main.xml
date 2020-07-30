@@ -55,6 +55,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_layout">
 
@@ -243,6 +244,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@null"
+                    android:id="@+id/sundaybox"
                     android:translationX="10dp"
                     android:layout_weight="1"
                     android:padding="3dp"
@@ -255,6 +257,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@null"
+                    android:id="@+id/mondaybox"
                     android:translationX="10dp"
                     android:layout_weight="1"
                     android:padding="3dp">
@@ -266,6 +269,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@null"
+                    android:id="@+id/tuesdaybox"
                     android:translationX="10dp"
                     android:layout_weight="1"
                     android:padding="3dp">
@@ -277,6 +281,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@null"
+                    android:id="@+id/wednesdaybox"
                     android:translationX="10dp"
                     android:layout_weight="1"
                     android:padding="3dp">
@@ -288,6 +293,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@null"
+                    android:id="@+id/thursdaybox"
                     android:translationX="10dp"
                     android:layout_weight="1"
                     android:padding="3dp">
@@ -298,6 +304,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@null"
+                    android:id="@+id/fridaybox"
                     android:translationX="10dp"
                     android:layout_weight="1"
                     android:padding="3dp">
@@ -309,6 +316,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@null"
+                    android:id="@+id/saturdaybox"
                     android:translationX="10dp"
                     android:layout_weight="1"
                     android:padding="3dp">
@@ -410,7 +418,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/cancel_btn"
-                android:text="@string/cancel"
+                android:text="@string/clear"
                 android:textColor="@color/white"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/cancel_btn_bg"
@@ -422,6 +430,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/save_medicine"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="@string/save"

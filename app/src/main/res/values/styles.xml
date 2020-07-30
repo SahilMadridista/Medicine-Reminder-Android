@@ -7,4 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="fab" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorAccent">@color/red</item>
+
+    </style>
+
 </resources>
